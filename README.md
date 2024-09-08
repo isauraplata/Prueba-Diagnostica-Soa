@@ -1,5 +1,6 @@
 # API RESTful para Gestión de Catalogo y Órdenes en un Vivero
 
+
 ## Descripción
 
 Este proyecto proporciona una API RESTful diseñada para gestionar eficientemente el inventario y las órdenes en un vivero. La API facilita operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para productos y órdenes, permite consultar órdenes filtradas por status  por ejemplo, "pendientes", "completadas", o "canceladas" para una mejor eficiencia y control. La implementación de la **arquitectura hexagonal** es para mejorar la escalabilidad y mantenibilidad del sistema.
@@ -34,7 +35,26 @@ Este proyecto proporciona una API RESTful diseñada para gestionar eficientement
     2. Copia y pega el contenido anterior en el archivo `.env`.
     3. Reemplaza los valores de los marcadores de posición con tus credenciales de base de datos y claves secretas específicas.
 
-4. **Ejecutar el Proyecto:**
+4. **Importar la Base de Datos:**
+    - La estructura de la base de datos se encuentra en el archivo `database.sql`.
+    - Utiliza el gestor de base de datos de tu preferencia (como MySQL Workbench, phpMyAdmin, o la línea de comandos de MySQL) para importar el archivo SQL.
+
+    #### Instrucciones de importación en MySQL Workbench:
+    
+    1. Abre MySQL Workbench y conecta a tu instancia de base de datos.
+    2. Selecciona la opción "Data Import/Restore" en el menú.
+    3. Elige el archivo `database.sql`.
+    4. Selecciona la base de datos donde deseas importar los datos (o crea una nueva base de datos si es necesario).
+    5. Haz clic en "Start Import" para completar la importación de la base de datos.
+
+    #### Instrucciones de importación en phpMyAdmin:
+    
+    1. Abre phpMyAdmin y selecciona tu base de datos.
+    2. Ve a la pestaña "Importar".
+    3. Haz clic en "Elegir archivo" y selecciona el archivo `database.sql`.
+    4. Haz clic en "Ejecutar" para importar la estructura y los datos.
+
+5. **Ejecutar el Proyecto:**
     - Para iniciar el proyecto en modo de desarrollo, ejecuta `npm run dev`.
 
 ## Base de Datos Relacional
