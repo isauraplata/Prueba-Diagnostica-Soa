@@ -5,10 +5,7 @@ export class GetOrderById {
     constructor(private orderRepository: OrderRepository) {}
 
     async run(id: string): Promise<Order | null> {
-
-
         const order = await this.orderRepository.getOrderById(id);
-
         return order;
     }
 }

@@ -7,8 +7,7 @@ export class CreateOrderController {
   async run(req: Request, res: Response) {
     try {
         const { products, totalAmount, status } = req.body;
-        console.log('Received request body:', req.body);
-    
+
         if (!Array.isArray(products) || products.length === 0) {
           console.log('Invalid products array:', products);
           return res.status(400).send({
@@ -16,8 +15,6 @@ export class CreateOrderController {
             data: "Invalid or empty products array",
           });
         }
-    
-        console.log('Calling createOrderUseCase with:', { products, totalAmount, status });
         const order = await this.createOrderUseCase.run(products, totalAmount, status);
       if (order) {
         res.status(201).send({

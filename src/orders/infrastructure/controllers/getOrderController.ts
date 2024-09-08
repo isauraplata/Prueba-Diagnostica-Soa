@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetOrderById } from "../../application/getOrderUseCase";
+import { GetOrderById } from "../../application/getOrdersUseCase";
 
 export class GetOrderController {
   constructor(private readonly getOrderByIdUseCase: GetOrderById) {}
@@ -7,8 +7,7 @@ export class GetOrderController {
   async run(req: Request, res: Response) {
     try {
         const id = req.params.id;
-        console.log('ID::::::', id);
-
+        
         if (!id) {
           return res.status(400).send({
             status: "error",

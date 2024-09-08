@@ -1,6 +1,6 @@
 import { Order } from "../domain/orderModel";
 import { OrderRepository } from "../domain/orderRepository";
-import { query } from "../../database/mysql";
+import { query } from "../../database/connection";
 
 export class MysqlOrderRepository implements OrderRepository {
   async getOrderById(id: string): Promise<Order | null> {
@@ -72,10 +72,7 @@ export class MysqlOrderRepository implements OrderRepository {
         const insertOrderProductsSQL = "INSERT INTO order_products (order_id, product_id, quantity) VALUES (?, ?, ?)";
     
         try {
-          console.log('Starting transaction');
           await query('START TRANSACTION', []);
-    
-          console.log('Inserting order');
           const [orderResult]: any = await query(insertOrderSQL, [totalAmount, status]);
           console.log('Order insert result:', orderResult);
     

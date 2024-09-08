@@ -15,8 +15,6 @@ export class GetOrdersByStatusController {
         });
       }
 
-      console.log("Status::::::", status);
-
       const orders = await this.getOrdersByStatusUseCase.run(status);
 
       if (orders && orders.length > 0) {

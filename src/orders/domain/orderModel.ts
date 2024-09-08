@@ -6,7 +6,4 @@ export class Order {
       public status: string 
     ) {}
   
-    // changeStatus(newStatus: string) {
-    //   this.status = newStatus;
-    // }
   }
