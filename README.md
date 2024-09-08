@@ -36,6 +36,8 @@ Este proyecto proporciona una API RESTful diseñada para gestionar eficientement
     3. Reemplaza los valores de los marcadores de posición con tus credenciales de base de datos y claves secretas específicas.
 
 4. **Importar la Base de Datos:**
+    - En este proyecto no se utiliza un ORM para gestionar la interacción entre la base de datos y las entidades, esto se debe a que el enfoque actual prioriza un control más directo sobre 
+    las consultas SQL y las operaciones en la base de datos.
     - La estructura de la base de datos se encuentra en el archivo `database.sql`.
     - Utiliza el gestor de base de datos de tu preferencia (como MySQL Workbench, phpMyAdmin, o la línea de comandos de MySQL) para importar el archivo SQL.
 
