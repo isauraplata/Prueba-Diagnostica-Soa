@@ -1,6 +1,6 @@
 import { CreateProduct } from "../application/createProductUseCase";
 import { CreateProductController } from "./controllers/createProductController";
-import { MysqlProductRepository } from "./MysqlProductRepository";
+import { MysqlProductRepository } from "./mysqlProductRepository";
 
 const productRepository =  new MysqlProductRepository();
 

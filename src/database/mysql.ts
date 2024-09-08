@@ -18,6 +18,7 @@ const pool = mysql.createPool(config);
 
 export async function query(sql: string, params: any[]) {
   try {
+    console.log('Executing query:', sql, 'with params:', params);
     const conn = await pool.getConnection();
     const result = await conn.execute(sql, params);
     conn.release();
@@ -26,7 +27,3 @@ export async function query(sql: string, params: any[]) {
     return null;
   }
 }
-
-
-
-

@@ -1,6 +1,7 @@
 import express from "express"
 import * as dotenv from "dotenv"
-import productRouter from "./products/infrastructure/ProductRouter";
+import productRouter from "./products/infrastructure/productRouter";
+import orderRouter from "./orders/infrastructure/orderRouter";
 // import cors from "cors";
 
 const app =express();
@@ -20,3 +21,4 @@ app.listen(port,()=>{
 
 
 app.use("/api/v1/products",productRouter);
+app.use("/api/v1/orders",orderRouter);
