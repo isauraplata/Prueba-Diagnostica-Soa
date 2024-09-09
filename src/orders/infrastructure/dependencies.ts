@@ -7,7 +7,8 @@ import { GetOrdersByStatus } from "../application/getOrderByStatusUseCase";
 import { GetOrdersByStatusController } from "./controllers/getOrderByStatusController";
 import { DeleteOrder } from "../application/deleteOrderUseCase";
 import { DeleteOrderController } from "./controllers/deleteOrderController";
-
+import { UpdateOrderStatusController } from "./controllers/updateOrderStatusController";
+import { UpdateOrderStatusUseCase } from "../application/updateOrderStatusUseCase";
 
 const orderRepository = new MysqlOrderRepository();
 
@@ -22,3 +23,6 @@ export const getOrdersByStatusController = new GetOrdersByStatusController(getOr
 
 export const deleteOrderUseCase = new DeleteOrder(orderRepository);
 export const deleteOrderController = new DeleteOrderController(deleteOrderUseCase)
+
+export const updateOrderStatusUseCase = new UpdateOrderStatusUseCase(orderRepository);
+export const updateOrderStatusController = new UpdateOrderStatusController(updateOrderStatusUseCase)

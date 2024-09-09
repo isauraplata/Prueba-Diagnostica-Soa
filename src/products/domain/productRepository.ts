@@ -5,7 +5,7 @@ export interface ProductRepository {
     name: string,
     description: string,
     price: number,
-    stock_quantity: number,
+    stock_quantity: number
   ): Promise<Product | null>;
   deleteProduct(id: number): Promise<boolean>;
   getAllProducts(): Promise<Product[]>;
@@ -15,5 +15,10 @@ export interface ProductRepository {
     description: string,
     price: number,
     stock_quantity: number
-): Promise<Product | null>; 
+  ): Promise<Product | null>;
+  getMostSoldProduct(): Promise<{
+    product_name: string;
+    description: string;
+    total_sold: number;
+  } | null>;
 }

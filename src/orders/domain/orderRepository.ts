@@ -9,5 +9,6 @@ export interface OrderRepository {
     getOrderById(id: string): Promise<Order | null>;
     getOrdersByStatus(status: string): Promise<Order[]>;
     deleteOrder(id: string): Promise<boolean>;
+    updateOrderStatus(id: string, status: string): Promise<Order | null>;
   }
   

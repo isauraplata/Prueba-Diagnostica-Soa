@@ -151,4 +151,38 @@ export class MysqlProductRepository implements ProductRepository {
       return false;
     }
   }
+
+  async getMostSoldProduct(): Promise<{ product_name: string, description: string, total_sold: number } | null> {
+    const sql = `
+      SELECT p.name as product_name, p.description, SUM(op.quantity) as total_sold
+      FROM products p
+      JOIN order_products op ON p.id = op.product_id
+      JOIN orders o ON op.order_id = o.id
+      WHERE o.status = 'completado'
+      GROUP BY p.id
+      ORDER BY total_sold DESC
+      LIMIT 1
+    `;
+
+    try {
+      const [results]: any = await query(sql, []);
+      
+      if (results.length === 0) {
+        console.log("No products found or no completed orders");
+        return null;
+      }
+
+      const bestSeller = results[0];
+      console.log("Best selling product retrieved:", bestSeller);
+      
+      return {
+        product_name: bestSeller.product_name,
+        description: bestSeller.description,
+        total_sold: bestSeller.total_sold
+      };
+    } catch (error) {
+      console.error("Error in getMostSoldProduct:", error);
+      return null;
+    }
+  }
 }

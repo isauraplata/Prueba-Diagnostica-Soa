@@ -8,6 +8,10 @@ import { GetAllProducts } from "../application/getProductsUseCase";
 import { UpdateProduct } from "../application/updateProductUseCase";
 import { UpdateProductController } from "./controllers/updateProductController";
 
+import { GetBestSellerUseCase } from "../application/getBestSellerUseCase";
+import { GetBestSellerController } from "./controllers/getBestSellerController";
+
+
 const productRepository =  new MysqlProductRepository();
 
 export const createProductUseCase = new CreateProduct(productRepository);
@@ -23,3 +27,8 @@ export const getAllProductsController = new GetAllProductsController(getProducts
 
 export const updateProductUseCase = new UpdateProduct(productRepository);
 export const updateProductController = new UpdateProductController(updateProductUseCase);
+
+
+
+export const getBestSellerUseCase = new GetBestSellerUseCase(productRepository);
+export const getBestSellerController = new GetBestSellerController(getBestSellerUseCase);
